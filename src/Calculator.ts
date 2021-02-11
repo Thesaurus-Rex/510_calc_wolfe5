@@ -111,10 +111,34 @@ export class Calculator {
   }
 
   /**
+   * Square the current value on the screen.
+   */
+  square() {
+    if (this.overwrite) {
+      this.lcd = '0';
+      this.overwrite = false;
+    } 
+    else if (this.lcd !== 'ERROR') // don't square ERROR
+    this.lcd = (parseFloat(this.lcd) * parseFloat(this.lcd)).toString();
+  }
+
+  /**
+     * Divide the current value on the screen by 100
+     */
+    percent() {
+      if (this.overwrite) {
+        this.lcd = '0';
+        this.overwrite = false;
+      } 
+      else if (this.lcd !== 'ERROR') // don't change ERROR
+      this.lcd = (parseFloat(this.lcd)/100).toString();
+    }
+
+  /**
    * Input a binary operator. If there is a pending operation whose result has
    * not yet been displayed, update the screen to display that result. For
    * example, when a user inputs 2 + 4 + 8, the screen is updated to display 6
-   * on the second + input.
+   * on the second + input. 
    */
   op(o: Op) {
     this.overwrite = true;

@@ -36,6 +36,16 @@ export class CalculatorUI extends Calculator {
     super.op(o);
     this.lcdDisplay.innerHTML = this.lcd.toString();
   }
+  
+  square() {
+    super.square();
+    this.lcdDisplay.innerHTML = this.lcd.toString();
+  }
+
+  percent() { 
+    super.percent();
+    this.lcdDisplay.innerHTML = this.lcd.toString();
+  }
 
   equals() {
     super.equals();
